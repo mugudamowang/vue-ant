@@ -1,27 +1,96 @@
 <template>
     <div class="todoList">
-        <h1>mugu TodoList</h1>
-        <hr>
+        <div class="head">
+            <h1>mugu TodoList</h1>
+            <hr />
+            <span>新代办: </span>
+            <input type="text" v-model="todo" @keyup.enter="addItem" />
+            <hr />
+        </div>
+
+        <div class="list">
+            <div>
+                <div class="item" v-for="(item, index) in list" :key="index">
+                    <span class="row">{{ index }}&nbsp;|</span>
+                    <span>
+                        {{ item }}
+                    </span>
+                    <span class="deletebtn" @click="deleteItem(index)">×</span>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
 export default {
     data() {
-        return {};
+        return {
+            todo: "",
+            list: [],
+        };
+    },
+    methods: {
+        addItem() {
+            this.list.push(this.todo);
+            this.todo = "";
+        },
+        deleteItem(index) {
+            this.list.splice(index, 1);
+        },
     },
 };
 </script>
 
 <style lang="scss">
+*::-webkit-scrollbar {
+    display: none;
+}
 .todoList {
     padding: 0;
     margin: 0;
     background: #41b883;
     width: 100%;
     height: 100vh;
-    h1{
+    overflow: scroll;
+    position: relative;
+    .head {
+        vertical-align: middle;
+        position: sticky;
+        top: 0;
+        left: 0;
         color: white;
+        background: inherit;
         padding: 1rem 0rem 0rem 0rem;
+        input {
+            border-radius: 0.1rem;
+            border-color: white;
+        }
+        input:focus {
+            outline: white solid 0.1rem;
+        }
+    }
+    .list {
+        text-align: left;
+        width: 25%;
+        height: 100%;
+        margin: 0 auto;
+        .item {
+            padding-left: 0.5rem;
+            background: white;
+            color: #41b883;
+            margin-top: 0.5rem;
+            outline: #e1eec3 0.1rem solid;
+            overflow: scroll;
+            max-height: 10%;
+            // position: relative;
+            .deletebtn {
+                position: absolute;
+                right: 0;
+                z-index: 100;
+                padding-inline: 0.2rem;
+                outline: #41b883 0.1rem solid;
+            }
+        }
     }
 }
 </style>

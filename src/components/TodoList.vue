@@ -54,6 +54,7 @@ export default {
     overflow: scroll;
     position: relative;
     .head {
+        z-index: 1000;
         vertical-align: middle;
         position: sticky;
         top: 0;
@@ -75,21 +76,34 @@ export default {
         height: 100%;
         margin: 0 auto;
         .item {
-            padding-left: 0.5rem;
+            padding: 0.1rem 0.5rem;
             background: white;
             color: #41b883;
             margin-top: 0.5rem;
             outline: #e1eec3 0.1rem solid;
             overflow: scroll;
             max-height: 10%;
-            // position: relative;
+            position: relative;
             .deletebtn {
                 position: absolute;
+                cursor: pointer;
+                z-index: 1;
+                background: transparent;
+                top: 0;
                 right: 0;
-                z-index: 100;
+                margin: 0.1rem;
                 padding-inline: 0.2rem;
                 outline: #41b883 0.1rem solid;
             }
+            .deletebtn:hover::after{
+                content: '删除';
+                font-size: 0.5rem;
+                color: red;
+            }
+        }
+        .finished{
+            color:grey;
+            text-decoration: line-through;
         }
     }
 }

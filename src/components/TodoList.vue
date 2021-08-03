@@ -1,7 +1,7 @@
 <template>
     <div class="todoList">
         <div class="head">
-            <h1>mugu TodoList</h1>
+            <h2>NO.5 TodoList</h2>
             <hr />
             <span>新代办: </span>
             <input type="text" v-model="todo" @keyup.enter="addItem" />
@@ -73,18 +73,21 @@ export default {
 *::-webkit-scrollbar {
     display: none;
 }
-.todoList {
-    padding: 0;
-    margin: 0;
+h2 {
+    font-style: italic;
     background: #41b883;
-    width: 100%;
+}
+.todoList {
+
+    padding: 0;
+    margin: 0 auto;
+    background: #41b883;
+    width: 50%;
     height: 100vh;
-    overflow: scroll;
     position: relative;
     .head {
-        z-index: 1000;
         vertical-align: middle;
-        position: sticky;
+        position: static;
         top: 0;
         left: 0;
         color: white;
@@ -100,7 +103,7 @@ export default {
     }
     .list {
         text-align: left;
-        width: 25%;
+        width: 50%;
         height: 100%;
         margin: 0 auto;
         .item {
@@ -109,13 +112,12 @@ export default {
             color: #41b883;
             margin-top: 0.5rem;
             outline: #e1eec3 0.1rem solid;
-            overflow: scroll;
+            // overflow: scroll;
             max-height: 10%;
             position: relative;
             .deletebtn {
                 position: absolute;
                 cursor: pointer;
-                z-index: 1;
                 background: transparent;
                 top: 0;
                 right: 0;

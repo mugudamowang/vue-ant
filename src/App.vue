@@ -5,7 +5,7 @@
 
   <BaseSkill id="base"></BaseSkill>
   <hr>
-  <TodoList></TodoList>
+  <TodoList id="todo"></TodoList>
 </template>
 
 <script lang="ts">

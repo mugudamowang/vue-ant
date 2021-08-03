@@ -7,13 +7,34 @@
             <input type="text" v-model="todo" @keyup.enter="addItem" />
             <hr />
         </div>
-
         <div class="list">
             <div>
-                <div class="item" v-for="(item, index) in list" :key="index">
+                <div
+                    class="item"
+                    v-for="(item, index) in list"
+                    :key="index"
+                    v-show="!item.checked"
+                >
+                    <input type="checkbox" v-model="item.checked" />
                     <span class="row">{{ index }}&nbsp;|</span>
                     <span>
-                        {{ item }}
+                        {{ item.title }}
+                    </span>
+                    <span class="deletebtn" @click="deleteItem(index)">×</span>
+                </div>
+            </div>
+            <hr />
+            <div>
+                <div
+                    class="item checked"
+                    v-for="(item, index) in list"
+                    :key="index"
+                    v-show="item.checked"
+                >
+                    <input type="checkbox" v-model="item.checked" />
+                    <span class="row">{{ index }}&nbsp;|</span>
+                    <span>
+                        {{ item.title }}
                     </span>
                     <span class="deletebtn" @click="deleteItem(index)">×</span>
                 </div>
@@ -31,8 +52,15 @@ export default {
     },
     methods: {
         addItem() {
-            this.list.push(this.todo);
-            this.todo = "";
+            if (this.todo === "") {
+                alert("请输入正确内容");
+            } else {
+                this.list.push({
+                    title: this.todo,
+                    checked: false,
+                });
+                this.todo = "";
+            }
         },
         deleteItem(index) {
             this.list.splice(index, 1);
@@ -95,14 +123,14 @@ export default {
                 padding-inline: 0.2rem;
                 outline: #41b883 0.1rem solid;
             }
-            .deletebtn:hover::after{
-                content: '删除';
+            .deletebtn:hover::after {
+                content: "删除";
                 font-size: 0.5rem;
                 color: red;
             }
         }
-        .finished{
-            color:grey;
+        .checked {
+            color: grey;
             text-decoration: line-through;
         }
     }

@@ -14,6 +14,7 @@
                     v-for="(item, index) in list"
                     :key="index"
                     v-show="!item.checked"
+                    @change="updateLocalStorage()"
                 >
                     <input type="checkbox" v-model="item.checked" />
                     <span class="row">{{ index }}&nbsp;|</span>
@@ -31,7 +32,11 @@
                     :key="index"
                     v-show="item.checked"
                 >
-                    <input type="checkbox" v-model="item.checked" />
+                    <input
+                        type="checkbox"
+                        v-model="item.checked"
+                        @change="updateLocalStorage()"
+                    />
                     <span class="row">{{ index }}&nbsp;|</span>
                     <span>
                         {{ item.title }}
@@ -43,6 +48,7 @@
     </div>
 </template>
 <script>
+import storage from '../models/storage'
 export default {
     data() {
         return {
@@ -50,7 +56,18 @@ export default {
             list: [],
         };
     },
+    mounted() {
+        let data = storage.get("todoList");
+        console.log(data);
+        if (data) {
+            this.list = data;
+        }
+    },
     methods: {
+        updateLocalStorage() {
+            storage.set("todoList", this.list);
+            console.log("list has updated");
+        },
         addItem() {
             if (this.todo === "") {
                 alert("请输入正确内容");
@@ -60,10 +77,12 @@ export default {
                     checked: false,
                 });
                 this.todo = "";
+                this.updateLocalStorage();
             }
         },
         deleteItem(index) {
             this.list.splice(index, 1);
+            this.updateLocalStorage();
         },
     },
 };
@@ -78,7 +97,6 @@ h2 {
     background: #41b883;
 }
 .todoList {
-
     padding: 0;
     margin: 0 auto;
     background: #41b883;
@@ -115,6 +133,7 @@ h2 {
             // overflow: scroll;
             max-height: 10%;
             position: relative;
+
             .deletebtn {
                 position: absolute;
                 cursor: pointer;

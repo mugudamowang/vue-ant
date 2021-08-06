@@ -88,7 +88,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 *::-webkit-scrollbar {
     display: none;
 }
@@ -97,11 +97,12 @@ h2 {
     background: #41b883;
 }
 .todoList {
+    // filter: invert(1); 反转颜色
     padding: 0;
     margin: 0 auto;
     background: #41b883;
     width: 50%;
-    height: 100vh;
+    // height: ;
     position: relative;
     .head {
         vertical-align: middle;

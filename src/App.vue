@@ -10,6 +10,7 @@
     <TodoList id="todo"></TodoList>
     <hr />
     <ParentAndChild></ParentAndChild>
+    <button @click="sendtoChild">send msg to Child with mitt plug</button>
 </template>
 
 <script lang="ts">
@@ -17,6 +18,7 @@ import { defineComponent } from "vue";
 import BaseSkill from "./components/BaseSkill.vue";
 import TodoList from "./components/TodoList.vue";
 import ParentAndChild from "./components/parent.vue";
+import event from "./models/event"
 
 export default defineComponent({
     name: "App",
@@ -24,7 +26,13 @@ export default defineComponent({
         BaseSkill,
         TodoList,
         ParentAndChild,
+        event
     },
+    methods:{
+        sendtoChild(){
+            event.emit("ApptoChild","i am app")
+        }
+    }
 });
 </script>
 

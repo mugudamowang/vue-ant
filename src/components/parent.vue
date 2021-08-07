@@ -3,7 +3,7 @@
     <button @click="getchildmsg">get child msg</button>
     <button @click="getchildfoo">run child foo</button>
     <hr>
-    <child ref="child"></child>
+    <child @send="foo" ref="child"></child>
     <hr>
 </template>
 <script>
@@ -24,7 +24,8 @@ export default {
         },
         foo(){
             alert("i run parent's foo")
-        }
+        },
+        
     },
 };
 </script>

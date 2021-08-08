@@ -1,5 +1,5 @@
 <template>
-    <h2>i am child</h2>
+    <h3>i am child</h3>
     <button @click="getparentmsg">get parent msg</button>
     <button @click="getparentfoo">run parent foo</button>
     <button @click="sendParent">run parent foo</button>

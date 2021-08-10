@@ -1,10 +1,8 @@
 <template>
     <div class="header">
         <p>Catolog:</p>
-        <a href="#base">baseskill</a>&nbsp;
-        <a href="#todo">todolist</a>&nbsp;
-        <a href="#com">communicate</a>&nbsp;
-        <a href="#mitt">mitt</a>&nbsp;
+        <a href="#base">baseskill</a>&nbsp; <a href="#todo">todolist</a>&nbsp;
+        <a href="#com">communicate</a>&nbsp; <a href="#mitt">mitt</a>&nbsp;
     </div>
 
     <BaseSkill ref="base" id="base"></BaseSkill>
@@ -17,10 +15,13 @@
 
     <h2 id="mitt">NO.8 自定义属性, 双向数据绑定</h2>
     <mButton class="commit">确认</mButton>
-    <mButton class="cancel">取消</mButton><br>
+    <mButton class="cancel">取消</mButton><br />
     <mInput v-model:keyword="keyword"></mInput>
-    {{keyword}}
-
+    {{ keyword }}
+    <br />
+    <hr />
+    <LifeCycle v-if="isShow"> </LifeCycle>
+    <button @click="isShow = !isShow">挂载/卸载组件</button>
 </template>
 
 <script lang="ts">
@@ -28,10 +29,10 @@ import { defineComponent } from "vue";
 import BaseSkill from "./components/BaseSkill.vue";
 import TodoList from "./components/TodoList.vue";
 import ParentAndChild from "./components/parent.vue";
-import event from "./models/event"
-import mButton from "./components/mButton.vue"
-import mInput from "./components/mInput.vue"
-
+import event from "./models/event";
+import mButton from "./components/mButton.vue";
+import mInput from "./components/mInput.vue";
+import LifeCycle from "./components/LifeCycle.vue";
 
 export default defineComponent({
     name: "App",
@@ -40,18 +41,20 @@ export default defineComponent({
         TodoList,
         ParentAndChild,
         mButton,
-        mInput
+        mInput,
+        LifeCycle,
     },
-    data(){
-        return{
-            keyword:""
-        }
+    data() {
+        return {
+            keyword: "",
+            isShow: true,
+        };
     },
-    methods:{
-        sendtoChild(){
-            event.emit("ApptoChild","i am app")
-        }
-    }
+    methods: {
+        sendtoChild() {
+            event.emit("ApptoChild", "i am app");
+        },
+    },
 });
 </script>
 
@@ -83,5 +86,4 @@ h2 {
     font-style: italic;
     background: #41b883;
 }
-
 </style>

@@ -58,7 +58,6 @@ export default {
     },
     mounted() {
         let data = storage.get("todoList");
-        console.log(data);
         if (data) {
             this.list = data;
         }

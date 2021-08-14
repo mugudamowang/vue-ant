@@ -4,6 +4,7 @@
         <a href="#base">baseskill</a>&nbsp; <a href="#todo">todolist</a>&nbsp;
         <a href="#com">communicate</a>&nbsp; <a href="#mitt">mitt</a>&nbsp;
         <a href="#life">LifeCycle</a>&nbsp;<a href="#axios">axios</a>&nbsp;
+        <a href="#fetch">fetch</a>&nbsp;
     </div>
 
     <BaseSkill ref="base" id="base"></BaseSkill>
@@ -24,7 +25,8 @@
     <LifeCycle id="life" v-if="isShow"> </LifeCycle>
     <button @click="isShow = !isShow">挂载/卸载组件</button>
     <Axios id="axios"></Axios>
-
+    <br>
+    <Fetch id="fetch"></Fetch>
 </template>
 
 <script lang="ts">
@@ -36,7 +38,8 @@ import event from "./models/event";
 import mButton from "./components/mButton.vue";
 import mInput from "./components/mInput.vue";
 import LifeCycle from "./components/LifeCycle.vue";
-import Axios from "./components/Axios.vue"
+import Axios from "./components/Axios.vue";
+import Fetch from "./components/Fetch.vue";
 
 export default defineComponent({
     name: "App",
@@ -47,7 +50,8 @@ export default defineComponent({
         mButton,
         mInput,
         LifeCycle,
-        Axios
+        Axios,
+        Fetch,
     },
     data() {
         return {

@@ -4,7 +4,7 @@
         <a href="#base">baseskill</a>&nbsp; <a href="#todo">todolist</a>&nbsp;
         <a href="#com">communicate</a>&nbsp; <a href="#mitt">mitt</a>&nbsp;
         <a href="#life">LifeCycle</a>&nbsp;<a href="#axios">axios</a>&nbsp;
-        <a href="#fetch">fetch</a>&nbsp;
+        <a href="#fetch">fetch</a>&nbsp;<a href="#mixin">mixin</a>&nbsp;
     </div>
 
     <BaseSkill ref="base" id="base"></BaseSkill>
@@ -27,6 +27,8 @@
     <Axios id="axios"></Axios>
     <br>
     <Fetch id="fetch"></Fetch>
+    <br>
+    <Mixins id="mixin"></Mixins>
 </template>
 
 <script lang="ts">
@@ -40,6 +42,7 @@ import mInput from "./components/mInput.vue";
 import LifeCycle from "./components/LifeCycle.vue";
 import Axios from "./components/Axios.vue";
 import Fetch from "./components/Fetch.vue";
+import Mixins from "./components/Mixins.vue";
 
 export default defineComponent({
     name: "App",
@@ -52,6 +55,7 @@ export default defineComponent({
         LifeCycle,
         Axios,
         Fetch,
+        Mixins,
     },
     data() {
         return {
@@ -67,7 +71,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style lang="scss">
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -84,12 +88,16 @@ p {
     padding: 0;
 }
 .header {
+    color:white;
     margin: 0;
-    padding: 0;
+    padding: 10px 0;
     position: sticky;
     z-index: 100;
     top: 0;
-    background: #41b883;
+    background: #41b883cc;
+    a{
+        color: inherit;
+    }
 }
 h2 {
     font-style: italic;

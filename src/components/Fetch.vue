@@ -63,4 +63,10 @@ export default {
     text-align: left;
     margin: 0 auto;
 }
+input {
+    width: 400px;
+    height: 32px;
+    margin: 1rem;
+    line-height: 32px;
+}
 </style>

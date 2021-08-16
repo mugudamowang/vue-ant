@@ -1,7 +1,11 @@
 <template>
     <div>
         <h2>NO.10 Axios</h2>
-        <input placeholder="express搜索框" v-model="keyword" @keyup.enter="getData" />
+        <input
+            placeholder="express搜索框"
+            v-model="keyword"
+            @keyup.enter="getData"
+        />
         <ul class="result">
             <p>结果:</p>
             <li v-for="(item, index) in data" :key="index">{{ item }}</li>
@@ -33,7 +37,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.result{
+.result {
     width: 26vw;
     list-style: none;
     background: wheat;
@@ -42,5 +46,11 @@ export default {
     margin: 0 auto;
     padding: 20px;
     border-radius: 5px;
+}
+input {
+    width: 400px;
+    height: 32px;
+    margin: 1rem;
+    line-height: 32px;
 }
 </style>

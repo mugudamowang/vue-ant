@@ -5,6 +5,7 @@
         <a href="#com">communicate</a>&nbsp; <a href="#mitt">mitt</a>&nbsp;
         <a href="#life">LifeCycle</a>&nbsp;<a href="#axios">axios</a>&nbsp;
         <a href="#fetch">fetch</a>&nbsp;<a href="#mixin">mixin</a>&nbsp;
+        <a href="#modal">modal</a>&nbsp;
     </div>
 
     <BaseSkill ref="base" id="base"></BaseSkill>
@@ -25,10 +26,17 @@
     <LifeCycle id="life" v-if="isShow"> </LifeCycle>
     <button @click="isShow = !isShow">挂载/卸载组件</button>
     <Axios id="axios"></Axios>
-    <br>
+    <br />
     <Fetch id="fetch"></Fetch>
-    <br>
+    <br />
     <Mixins id="mixin"></Mixins>
+    <Modal
+        id="modal"
+        :visible="isVisible"
+        title="自定义标题"
+        @modal-close="isVisible = false"
+    ></Modal>
+    <button @click="isVisible = true">modal show</button>
 </template>
 
 <script lang="ts">
@@ -43,6 +51,7 @@ import LifeCycle from "./components/LifeCycle.vue";
 import Axios from "./components/Axios.vue";
 import Fetch from "./components/Fetch.vue";
 import Mixins from "./components/Mixins.vue";
+import Modal from "./components/Modal.vue";
 
 export default defineComponent({
     name: "App",
@@ -56,11 +65,13 @@ export default defineComponent({
         Axios,
         Fetch,
         Mixins,
+        Modal,
     },
     data() {
         return {
             keyword: "",
             isShow: true,
+            isVisible: false,
         };
     },
     methods: {
@@ -88,14 +99,14 @@ p {
     padding: 0;
 }
 .header {
-    color:white;
+    color: white;
     margin: 0;
     padding: 10px 0;
     position: sticky;
     z-index: 100;
     top: 0;
     background: #41b883cc;
-    a{
+    a {
         color: inherit;
     }
 }

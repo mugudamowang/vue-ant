@@ -5,7 +5,7 @@
         <a href="#com">communicate</a>&nbsp; <a href="#mitt">mitt</a>&nbsp;
         <a href="#life">LifeCycle</a>&nbsp;<a href="#axios">axios</a>&nbsp;
         <a href="#fetch">fetch</a>&nbsp;<a href="#mixin">mixin</a>&nbsp;
-        <a href="#modal">modal</a>&nbsp;
+        <a href="#modal">modal</a>&nbsp;<a href="#compose">compose</a>&nbsp;
     </div>
 
     <BaseSkill ref="base" id="base"></BaseSkill>
@@ -37,6 +37,8 @@
         @modal-close="isVisible = false"
     ></Modal>
     <button @click="isVisible = true">modal show</button>
+    <br>
+    <Composition id="compose"></Composition>
 </template>
 
 <script lang="ts">
@@ -52,6 +54,7 @@ import Axios from "./components/Axios.vue";
 import Fetch from "./components/Fetch.vue";
 import Mixins from "./components/Mixins.vue";
 import Modal from "./components/Modal.vue";
+import Composition from "./components/Composition.vue";
 
 export default defineComponent({
     name: "App",
@@ -66,6 +69,7 @@ export default defineComponent({
         Fetch,
         Mixins,
         Modal,
+        Composition
     },
     data() {
         return {

@@ -1,12 +1,15 @@
 <template>
     <div class="header">
+        <p>{{title}}</p>
         <p>Catolog:</p>
         <a href="#base">baseskill</a>&nbsp; <a href="#todo">todolist</a>&nbsp;
         <a href="#com">communicate</a>&nbsp; <a href="#mitt">mitt</a>&nbsp;
         <a href="#life">LifeCycle</a>&nbsp;<a href="#axios">axios</a>&nbsp;
         <a href="#fetch">fetch</a>&nbsp;<a href="#mixin">mixin</a>&nbsp;
         <a href="#modal">modal</a>&nbsp;<a href="#compose">compose</a>&nbsp;
+        <a href="#inject">inject</a>&nbsp;
     </div>
+
 
     <BaseSkill ref="base" id="base"></BaseSkill>
     <hr />
@@ -39,10 +42,12 @@
     <button @click="isVisible = true">modal show</button>
     <br>
     <Composition id="compose"></Composition>
+    <br>
+    <Inject @setTitle="setTitle" id="inject"></Inject>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, provide, ref } from "vue";
 import BaseSkill from "./components/BaseSkill.vue";
 import TodoList from "./components/TodoList.vue";
 import ParentAndChild from "./components/parent.vue";
@@ -55,6 +60,8 @@ import Fetch from "./components/Fetch.vue";
 import Mixins from "./components/Mixins.vue";
 import Modal from "./components/Modal.vue";
 import Composition from "./components/Composition.vue";
+import Inject from "./components/Inject.vue";
+
 
 export default defineComponent({
     name: "App",
@@ -69,7 +76,19 @@ export default defineComponent({
         Fetch,
         Mixins,
         Modal,
-        Composition
+        Composition,
+        Inject
+    },
+    setup(){
+        let title = ref("vue-vant app");
+        provide("title", title);
+        let setTitle = () => {
+            title.value = "changed app title"
+        }
+        return{
+            title,
+            setTitle
+        }
     },
     data() {
         return {

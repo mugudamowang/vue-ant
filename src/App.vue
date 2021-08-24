@@ -7,7 +7,8 @@
         <a href="#life">LifeCycle</a>&nbsp;<a href="#axios">axios</a>&nbsp;
         <a href="#fetch">fetch</a>&nbsp;<a href="#mixin">mixin</a>&nbsp;
         <a href="#modal">modal</a>&nbsp;<a href="#compose">compose</a>&nbsp;
-        <a href="#inject">inject</a>&nbsp;
+        <a href="#inject">inject</a>&nbsp;<a href="#ts">ts</a>&nbsp;
+        <a href="#rtv">routes</a>&nbsp;
     </div>
 
 
@@ -44,6 +45,12 @@
     <Composition id="compose"></Composition>
     <br>
     <Inject @setTitle="setTitle" id="inject"></Inject>
+    <br>
+    <Typescript id="ts"></Typescript>
+    <br>
+    <hr>
+    <router-view id="rtv"></router-view>
+    <router-link to="/rtv">get routerview</router-link>
 </template>
 
 <script lang="ts">
@@ -61,6 +68,8 @@ import Mixins from "./components/Mixins.vue";
 import Modal from "./components/Modal.vue";
 import Composition from "./components/Composition.vue";
 import Inject from "./components/Inject.vue";
+import Typescript from "./components/Typescript.vue";
+
 
 
 export default defineComponent({
@@ -77,7 +86,8 @@ export default defineComponent({
         Mixins,
         Modal,
         Composition,
-        Inject
+        Inject,
+        Typescript
     },
     setup(){
         let title = ref("vue-vant app");

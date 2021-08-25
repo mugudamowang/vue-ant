@@ -49,8 +49,9 @@
     <Typescript id="ts"></Typescript>
     <br>
     <hr>
+    <h2>NO.17 RouterView</h2>
+    <router-link to="/rtv">get router view</router-link><br><br>
     <router-view id="rtv"></router-view>
-    <router-link to="/rtv">get routerview</router-link>
 </template>
 
 <script lang="ts">

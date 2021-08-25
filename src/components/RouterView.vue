@@ -1,7 +1,10 @@
 <template>
     <div>
-        <h2>{{title}}</h2>
         <p>{{msg}}</p>
+        <br>
+        <input type="text" v-model="param" @keyup.enter="this.$router.push({ path: '/rtParam/'+param})" placeholder="input router target, enter&jump with daynamic">
+        <br>
+        <router-link :to="`/rtParam?query=${param}`">jump to /rtParam/{{param}} with get</router-link>
     </div>
     
 </template>
@@ -10,14 +13,14 @@ import { defineComponent, ref } from "vue";
 export default defineComponent({
     name: "routerview",
     setup() {
-        let title = ref("NO.17 RouterView");
         let msg = ref(
             "import componets directly with RouterView, set up in routes"
         );
+        let param =ref<number>();
 
         return {
             msg,
-            title,
+            param
         };
     },
 });

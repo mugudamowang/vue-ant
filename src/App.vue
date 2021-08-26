@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <p>{{title}}</p>
+        <p>{{ title }}</p>
         <p>Catolog:</p>
         <a href="#base">baseskill</a>&nbsp; <a href="#todo">todolist</a>&nbsp;
         <a href="#com">communicate</a>&nbsp; <a href="#mitt">mitt</a>&nbsp;
@@ -10,7 +10,6 @@
         <a href="#inject">inject</a>&nbsp;<a href="#ts">ts</a>&nbsp;
         <a href="#rtv">routes</a>&nbsp;
     </div>
-
 
     <BaseSkill ref="base" id="base"></BaseSkill>
     <hr />
@@ -41,16 +40,17 @@
         @modal-close="isVisible = false"
     ></Modal>
     <button @click="isVisible = true">modal show</button>
-    <br>
+    <br />
     <Composition id="compose"></Composition>
-    <br>
+    <br />
     <Inject @setTitle="setTitle" id="inject"></Inject>
-    <br>
+    <br />
     <Typescript id="ts"></Typescript>
-    <br>
-    <hr>
+    <br />
+    <hr />
     <h2>NO.17 RouterView</h2>
-    <router-link to="/rtv">get router view</router-link><br><br>
+    <router-link to="/rtv?way='get'">get router view</router-link><br>
+    <router-link :to="{name:'routeview',params:{way:'name'}}">get router view with name</router-link>
     <router-view id="rtv"></router-view>
 </template>
 
@@ -71,8 +71,6 @@ import Composition from "./components/Composition.vue";
 import Inject from "./components/Inject.vue";
 import Typescript from "./components/Typescript.vue";
 
-
-
 export default defineComponent({
     name: "App",
     components: {
@@ -88,18 +86,18 @@ export default defineComponent({
         Modal,
         Composition,
         Inject,
-        Typescript
+        Typescript,
     },
-    setup(){
+    setup() {
         let title = ref("vue-vant app");
         provide("title", title);
         let setTitle = () => {
-            title.value = "changed app title"
-        }
-        return{
+            title.value = "changed app title";
+        };
+        return {
             title,
-            setTitle
-        }
+            setTitle,
+        };
     },
     data() {
         return {

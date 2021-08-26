@@ -1,8 +1,13 @@
 <template>
     <div>
         <p>{{ msg }}</p>
-        <p>{{this.$route.query}}</p>
-        <p>{{this.$route.params}}</p>
+        <p>{{ this.$route.query }}</p>
+        <p>{{ this.$route.params }}</p>
+        <hr />
+        <router-link to="rtv/child">child route</router-link><br />
+        <router-link to="rtv/home">home redirect</router-link>
+        <router-view></router-view>
+        <hr />
         <br />
         <input
             type="text"

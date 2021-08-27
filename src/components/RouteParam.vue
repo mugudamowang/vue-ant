@@ -1,7 +1,7 @@
 <template>
     <div>
-        <p>{{this.$route.query}}</p>
-        <p>{{this.$route.params}}</p>
+        <p>使用get{{this.$route.query}}</p>
+        <p>使用params{{this.$route.params}}</p>
 
     </div>
 </template>

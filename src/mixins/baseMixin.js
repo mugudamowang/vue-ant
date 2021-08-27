@@ -1,7 +1,8 @@
 const baseMixin ={
     data() {
         return {
-            mixMeg:"hello here is baseMixin in Mixins"
+            mixMeg1:"hello here is baseMixin in Mixins, 全局Mix",
+            mixMeg2:"hello here is baseMixin in Mixins, 全局Mix"
         }
     },
     methods: {
@@ -10,4 +11,4 @@ const baseMixin ={
         }
     },
 }
-export default baseMixin
+export default baseMixin;

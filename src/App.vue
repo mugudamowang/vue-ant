@@ -52,6 +52,9 @@
     <router-link to="/rtv?way='get'">get router view</router-link><br>
     <router-link :to="{name:'routeview',params:{way:'name'}}">get router view with name</router-link>
     <router-view id="rtv"></router-view>
+    <br>
+    <Vuex></Vuex>
+
 </template>
 
 <script lang="ts">
@@ -70,6 +73,8 @@ import Modal from "./components/Modal.vue";
 import Composition from "./components/Composition.vue";
 import Inject from "./components/Inject.vue";
 import Typescript from "./components/Typescript.vue";
+import Vuex from "./components/Vuex.vue";
+
 
 export default defineComponent({
     name: "App",
@@ -87,6 +92,7 @@ export default defineComponent({
         Composition,
         Inject,
         Typescript,
+        Vuex
     },
     setup() {
         let title = ref("vue-vant app");

@@ -1,6 +1,8 @@
+
+
 import { createStore } from 'vuex';
 
-const store = createStore({
+const userStore = createStore({
     state(){ //数据
         return{
             count:1,
@@ -38,20 +40,4 @@ const store = createStore({
     }
 })
 
-export default store
-
-//模块化
-
-// import { createStore } from 'vuex';
-
-// import newsStore from './newsStore'
-// import userStore from './userStore'
-
-// const store = createStore({
-//     modules:{
-//         "user":userStore,
-//         "news":newsStore
-//     }
-// })
-
-// export default store
+export default userStore

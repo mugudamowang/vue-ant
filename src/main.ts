@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';
 import axios from "axios";
 //todo: ts类型检查导致, 在tsconfig.json中设置"noImplicitAny": false
 import baseMixin from './mixins/baseMixin'
@@ -17,4 +19,5 @@ app.config.globalProperties.fetchJsonp = fetchJsonp;  //绑定到全局
 app.mixin(baseMixin);
 app.use(route);
 app.use(store);
+app.use(Antd);
 app.mount('#app');

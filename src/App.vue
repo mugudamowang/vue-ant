@@ -8,7 +8,7 @@
         <a href="#fetch">fetch</a>&nbsp;<a href="#mixin">mixin</a>&nbsp;
         <a href="#modal">modal</a>&nbsp;<a href="#compose">compose</a>&nbsp;
         <a href="#inject">inject</a>&nbsp;<a href="#ts">ts</a>&nbsp;
-        <a href="#rtv">routes</a>&nbsp;
+        <a href="#rtv">routes</a>&nbsp;<a href="#ant">antDesign</a>&nbsp;
     </div>
 
     <BaseSkill ref="base" id="base"></BaseSkill>
@@ -54,6 +54,9 @@
     <router-view id="rtv"></router-view>
     <br>
     <Vuex></Vuex>
+    <br><hr>
+    <AntD id="ant"></AntD>
+    <br><hr>
 
 </template>
 
@@ -74,6 +77,7 @@ import Composition from "./components/Composition.vue";
 import Inject from "./components/Inject.vue";
 import Typescript from "./components/Typescript.vue";
 import Vuex from "./components/Vuex.vue";
+import AntD from "./components/AntD.vue"
 
 
 export default defineComponent({
@@ -92,7 +96,8 @@ export default defineComponent({
         Composition,
         Inject,
         Typescript,
-        Vuex
+        Vuex,
+        AntD
     },
     setup() {
         let title = ref("vue-vant app");
